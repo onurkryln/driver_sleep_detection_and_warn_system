@@ -1,0 +1,25 @@
+int pin=8;
+void setup() {
+  // Seri iletişimi başlat
+  Serial.begin(9600);
+  pinMode(pin, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    // Python programından gelen veriyi oku
+    char data = Serial.read();
+    
+    // Gelen veriyi seri monitöre yazdır
+    if(data=='1'){
+digitalWrite(pin, HIGH);
+
+  }
+    else{
+digitalWrite(pin, LOW);
+
+    }Serial.print("Python'dan alınan veri: ");
+    Serial.println(data);
+    delay(1);
+  }
+}
